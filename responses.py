@@ -16,7 +16,8 @@ def get_response(message: str) -> str:
     if p_message == 'hello':
         return 'Hey there!'
 
-    if p_message.startswith('!') and p_message[1:] not in ['roll', 'choose', 'help']:
+    # Splits the command prompt from the command, and returns invalid if not a valid command.
+    if p_message.startswith('!') and p_message.split()[0][1:] not in ['roll', 'choose', 'help']:
         return "Invalid command. Try `!help`"
 
     # Rolling a dice
